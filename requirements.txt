@@ -1,0 +1,9 @@
+decorator
+pyyaml
+scipy
+setuptools
+setuptools-scm
+flash_attn==2.7.3
+flash-linear-attention==0.1
+vllm==0.10.0
+torch==2.7.1
