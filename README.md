@@ -1,6 +1,8 @@
 # SpikingBrain：Spiking Brain-inspired Large Models
 
-Our technical report: [PDF link]
+📄 Technical Report: [Chinese](SpikingBrain_Report_Chi.pdf) | [English](SpikingBrain_Report_Eng.pdf)  
+🚀 Arxiv: *coming soon*  
+🧩 Models: [Available Models](#available-models)   
 
 ---
 
@@ -10,6 +12,9 @@ Inspired by brain mechanisms, **SpikingBrain** integrates **hybrid efficient att
 
 ![](assets/fig1.png)
 
+---
+
+## Project Structure
 This repository provides the full implementation and weights of **SpikingBrain-7B**, including the **HuggingFace version**, **vLLM inference version**, and **quantized version**, enabling flexible deployment and research across different scenarios.
 
 ```
@@ -22,19 +27,11 @@ SpikingBrain-7B/
 └── README.md 
 ```
 
-The model weights are hosted on **ModelScope**. Please select the appropriate version based on your needs:
-
-> Original weights (pre-traind model): https://www.modelscope.cn/models/Panyuqi/V1-7B-base
-> Original weights (chat model): https://www.modelscope.cn/models/Panyuqi/V1-7B-sft-s3-reasoning
-> Quantized weights: https://www.modelscope.cn/models/Abel2076/SpikingBrain-7B-W8ASpike
-
 --- 
 
 ## vLLM-HyMeta
 
-**vllm-hymeta** is the plugin adaptation of the HyMeta model for the [vLLM inference framework](https://github.com/vllm-project/vllm/tree/main), providing efficient inference support on NVIDIA GPUs.
-
-(HyMeta is an acronym for Hybrid Models built on MetaX GPUs.)
+**vllm-hymeta** is the plugin adaptation of HyMeta (Hybrid Models built on MetaX GPUs) for the [vLLM inference framework](https://github.com/vllm-project/vllm/tree/main), providing efficient inference support on NVIDIA GPUs.
 
 By leveraging the [plugins mechanism](https://blog.vllm.ai/2025/05/12/hardware-plugin.html) in vLLM, hardware backends can be integrated in a modular fashion, bringing the following benefits:
 
@@ -96,7 +93,13 @@ The activation spike encoding process here is inspired by the pseudo-spiking int
 ---
 
 ## Available Models
+The model weights are hosted on **ModelScope**. Please select the appropriate version based on your needs:
 
+- **Pre-trained model (7B):** https://www.modelscope.cn/models/Panyuqi/V1-7B-base
+- **Chat model (7B-SFT):** https://www.modelscope.cn/models/Panyuqi/V1-7B-sft-s3-reasoning
+- **Quantized weights (7B-W8ASpike):** https://www.modelscope.cn/models/Abel2076/SpikingBrain-7B-W8ASpike
+
+### Performance Evaluation
 Table 1: **Performance evaluation of the SpikingBrain-7B pre-trained model.** All models are tested with the HuggingFace framework and evaluated using a perplexity-based method. Except for Qwen2.5, the other baselines are trained on limited Chinese data, resulting in clear disadvantages on CMMLU and C-Eval.
 ![](assets/table1.png)
 
@@ -108,8 +111,13 @@ Table 2: **Performance evaluation of the SpikingBrain-76B pre-trained model.** A
 
 ## Citation
 
-If you find our work useful, please consider citing SpikingBrain:
+If you find our work useful, please consider citing **SpikingBrain**:
 
-```py
-# todo
+```bibtex
+@article{spikingbrain2025,
+  title   = {SpikingBrain Technical Report: Spiking Brain-inspired Large Models},
+  author  = {TODO},
+  journal = {arXiv preprint arXiv:TODO},
+  year    = {2025}
+}
 ```
