@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 try:
-    from .neuron import spike_fake_quant, SpikeCountBitwiseNode
+    from .Int2Spike.neuron import spike_fake_quant, SpikeCountBitwiseNode
     spike_is_available = True
 except Exception as e:
     print('need https://github.com/BICLab/Int2Spike repo to do fake int2spike, ', e)
