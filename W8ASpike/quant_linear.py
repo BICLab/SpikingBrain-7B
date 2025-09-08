@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 try:
-    from .Int2Spike.neuron import spike_fake_quant, SpikeCountBitwiseNode
+    from .Int2Spike.neuron import spike_fake_quant, SpikeCountBitwiseNode, spike_matmul
     spike_is_available = True
 except Exception as e:
     print('need https://github.com/BICLab/Int2Spike repo to do fake int2spike, ', e)
@@ -29,6 +29,7 @@ class QuantLinear(nn.Linear):
     def forward(self, x):
         # BLD
         assert not self.training
+        # # NOTICE: can use spike_matmul func to substitute the matmul between spikes_int & weight.
         # if self.w_group_size is not None:
         #     spikes_int, vth = dynamic_spikes(x, self.k)
         #     weight = self.weight_quantizer(self.weight).reshape(self.out_features, -1, self.w_group_size)
