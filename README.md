@@ -1,7 +1,7 @@
 # SpikingBrain：Spiking Brain-inspired Large Models
 
 📄 Technical Report: [Chinese](SpikingBrain_Report_Chi.pdf) | [English](SpikingBrain_Report_Eng.pdf)  
-🚀 Arxiv: *coming soon*  
+🚀 Arxiv: [arXiv:2509.05276](https://www.arxiv.org/abs/2509.05276)  
 🧩 Models: [Available Models](#available-models)   
 
 ---
@@ -20,6 +20,7 @@ This repository provides the full implementation and weights of **SpikingBrain-7
 ```
 SpikingBrain-7B/
 ├── hf_7B_model/ # HuggingFace version
+├── run_model/   # Model run examples
 ├── vllm_hymeta/ # vLLM plugins and inference support
 ├── W8ASpike/    # Quantized inference version
 ├── setup.py
@@ -98,6 +99,16 @@ The model weights are hosted on **ModelScope**. Please select the appropriate ve
 - **Pre-trained model (7B):** https://www.modelscope.cn/models/Panyuqi/V1-7B-base
 - **Chat model (7B-SFT):** https://www.modelscope.cn/models/Panyuqi/V1-7B-sft-s3-reasoning
 - **Quantized weights (7B-W8ASpike):** https://www.modelscope.cn/models/Abel2076/SpikingBrain-7B-W8ASpike
+
+### Usage
+Example scripts are provided in [`run_model/`](run_model) for running the model with the released checkpoints. 
+
+- **Hugging Face**  
+Load with `AutoModelForCausalLM` and use as a standard CausalLM (forward or generation); see [`run_model/run_model_hf.py`](run_model/run_model_hf.py).  
+For the SFT model, a chat template is used; see [`run_model/run_model_hf_chat_template.py`](run_model/run_model_hf_chat_template.py).
+
+- **vLLM**  
+Perform inference using the provided **vLLM Hymeta** plugin; see [`run_model/run_model_vllm.py`](run_model/run_model_vllm.py) and the [vLLM Hymeta](#vllm-hymeta) section.
 
 ### Performance Evaluation
 Table 1: **Performance evaluation of the SpikingBrain-7B pre-trained model.** All models are tested with the HuggingFace framework and evaluated using a perplexity-based method. Except for Qwen2.5, the other baselines are trained on limited Chinese data, resulting in clear disadvantages on CMMLU and C-Eval.
