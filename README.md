@@ -52,14 +52,13 @@ sudo docker run -itd \
     --gpus all \
     --privileged \
     -v /host_path:/container_path \
-    --env "HF_ENDPOINT=https://hf-mirror.com" \
     docker.1ms.run/vllm/vllm-openai:v0.10.0
 ```
 
 ### Plugin Installation
 ```bash
 git clone https://github.com/BICLab/SpikingBrain-7B.git
-cd vllm-hymeta
+cd SpikingBrain-7B
 pip install .
 ```
 
@@ -76,6 +75,21 @@ flash-linear-attention==0.1
 vllm==0.10.0
 torch==2.7.1
 ```
+
+### Run with vLLM
+
+You can serve a model with vLLM in the simplest way using the following command:
+
+```bash
+vllm serve <your_model_path> \
+  --served-model-name <model_name> \
+  --gpu-memory-utilization <ratio> \
+  --block-size <size> \
+  --dtype bfloat16 \
+  --port <port_number>
+```
+
+You may also set `--tensor-parallel-size` and `--pipeline-parallel-size` when launching if you want to run with multiple GPUs. 
 
 ---
 
