@@ -89,7 +89,7 @@ vllm serve <your_model_path> \
   --port <port_number>
 ```
 
-You can also check the script `run_model/run_model_vllm.py` for an example of running vLLM programmatically.
+You may also set `--tensor-parallel-size` and `--pipeline-parallel-size` when launching if you want to run with multiple GPUs. 
 
 ---
 
