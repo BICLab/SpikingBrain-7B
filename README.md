@@ -125,10 +125,10 @@ Table 2: **Performance evaluation of the SpikingBrain-76B pre-trained model.** A
 If you find our work useful, please consider citing **SpikingBrain**:
 
 ```bibtex
-@article{spikingbrain2025,
-  title   = {SpikingBrain Technical Report: Spiking Brain-inspired Large Models},
-  author  = {TODO},
-  journal = {arXiv preprint arXiv:TODO},
-  year    = {2025}
+@article{pan2025spikingbrain,
+  title={SpikingBrain Technical Report: Spiking Brain-inspired Large Models},
+  author={Pan, Yuqi and Feng, Yupeng and Zhuang, Jinghao and Ding, Siyu and Liu, Zehao and Sun, Bohan and Chou, Yuhong and Xu, Han and Qiu, Xuerui and Deng, Anlin and others},
+  journal={arXiv preprint arXiv:2509.05276},
+  year={2025}
 }
 ```
