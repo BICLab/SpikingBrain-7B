@@ -65,15 +65,17 @@ pip install .
 Recommended environment for installing **vllm-hymeta** on NVIDIA GPUs:
 
 ```makefile
-decorator
-pyyaml
-scipy
-setuptools
-setuptools-scm
+torch==2.7.1
+transformers==4.55.2
+triton==3.3.1
 flash_attn==2.7.3
 flash-linear-attention==0.1
 vllm==0.10.0
-torch==2.7.1
+scipy
+pyyaml
+decorator
+setuptools
+setuptools-scm
 ```
 
 ### Run with vLLM
@@ -123,6 +125,8 @@ For the SFT model, a chat template is used; see [`run_model/run_model_hf_chat_te
 
 - **vLLM**  
 Perform inference using the provided **vLLM Hymeta** plugin; see [`run_model/run_model_vllm.py`](run_model/run_model_vllm.py) and the [vLLM Hymeta](#vllm-hymeta) section.
+
+> For tested environment, please refer to [requirements.txt](requirements.txt).
 
 ### Performance Evaluation
 Table 1: **Performance evaluation of the SpikingBrain-7B pre-trained model.** All models are tested with the HuggingFace framework and evaluated using a perplexity-based method. Except for Qwen2.5, the other baselines are trained on limited Chinese data, resulting in clear disadvantages on CMMLU and C-Eval.

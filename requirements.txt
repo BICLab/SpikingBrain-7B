@@ -1,9 +1,11 @@
-decorator
-pyyaml
-scipy
-setuptools
-setuptools-scm
+torch==2.7.1
+transformers==4.55.2
+triton==3.3.1
 flash_attn==2.7.3
 flash-linear-attention==0.1
 vllm==0.10.0
-torch==2.7.1
+scipy
+pyyaml
+decorator
+setuptools
+setuptools-scm
