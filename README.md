@@ -78,6 +78,22 @@ setuptools
 setuptools-scm
 ```
 
+Due to the conflict between `flash-linear-attention==0.1` and `transformers==4.55.2`, You can refer to [fla-org/flash-linear-attention#425](https://github.com/fla-org/flash-linear-attention/issues/425) to modify `<your_path_to_python3.12>/dist-packages/fla/models/bitnet/init.py` as follows:
+
+Change from:
+```python
+AutoConfig.register(ABCConfig.model_type, ABCConfig)
+AutoModel.register(ABCConfig, ABCModel)
+AutoModelForCausalLM.register(ABCConfig, ABCForCausalLM)
+```
+to:
+```python
+AutoConfig.register(ABCConfig.model_type, ABCConfig, exist_ok=True)
+AutoModel.register(ABCConfig, ABCModel, exist_ok=True)
+AutoModelForCausalLM.register(ABCConfig, ABCForCausalLM, exist_ok=True)
+```
+That is, add `exist_ok=True` to each line.
+
 ### Run with vLLM
 
 You can serve a model with vLLM in the simplest way using the following command:
@@ -124,7 +140,15 @@ Load with `AutoModelForCausalLM` and use as a standard CausalLM (forward or gene
 For the SFT model, a chat template is used; see [`run_model/run_model_hf_chat_template.py`](run_model/run_model_hf_chat_template.py).
 
 - **vLLM**  
-Perform inference using the provided **vLLM Hymeta** plugin; see [`run_model/run_model_vllm.py`](run_model/run_model_vllm.py) and the [vLLM Hymeta](#vllm-hymeta) section.
+Perform inference using the provided **vLLM Hymeta** plugin; see [`run_model/run_model_vllm.py`](run_model/run_model_vllm.py) and the [vLLM Hymeta](#vllm-hymeta) section. 
+
+Please make sure to remove the `auto_map` field from `config.json`. Specifically, delete the following block if it is present:
+```json
+"auto_map": {
+  "AutoConfig": "configuration_gla_swa.GLAswaConfig",
+  "AutoModelForCausalLM": "modeling_gla_swa.GLAswaForCausalLM"
+}
+```
 
 > For tested environment, please refer to [requirements.txt](requirements.txt).
 
