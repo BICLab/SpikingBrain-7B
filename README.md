@@ -140,8 +140,7 @@ Load with `AutoModelForCausalLM` and use as a standard CausalLM (forward or gene
 For the SFT model, a chat template is used; see [`run_model/run_model_hf_chat_template.py`](run_model/run_model_hf_chat_template.py).
 
 - **vLLM**  
-Perform inference using the provided **vLLM Hymeta** plugin; see [`run_model/run_model_vllm.py`](run_model/run_model_vllm.py) and the [vLLM Hymeta](#vllm-hymeta) section. 
-
+Perform inference using the provided **vLLM Hymeta** plugin; see [`run_model/run_model_vllm.py`](run_model/run_model_vllm.py) and the [vLLM Hymeta](#vllm-hymeta) section.   
 Please make sure to remove the `auto_map` field from `config.json`. Specifically, delete the following block if it is present:
 ```json
 "auto_map": {
