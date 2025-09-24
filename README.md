@@ -44,22 +44,20 @@ By leveraging the [plugins mechanism](https://blog.vllm.ai/2025/05/12/hardware-p
 
 ### Container Deployment (NVIDIA)
 ```bash
-sudo docker run -itd \
+git clone https://github.com/BICLab/SpikingBrain-7B.git
+cd SpikingBrain-7B
+docker build -t spiking-brain:7b-v1.0 .
+```
+```bash
+docker run -itd \
     --entrypoint /bin/bash \
     --network host \
-    --name hymeta-bench \
+    --name <container_name> \
     --shm-size 160g \
     --gpus all \
     --privileged \
     -v /host_path:/container_path \
-    docker.1ms.run/vllm/vllm-openai:v0.10.0
-```
-
-### Plugin Installation
-```bash
-git clone https://github.com/BICLab/SpikingBrain-7B.git
-cd SpikingBrain-7B
-pip install .
+    spiking-brain:7b-v1.0
 ```
 
 Recommended environment for installing **vllm-hymeta** on NVIDIA GPUs:
@@ -77,22 +75,6 @@ decorator
 setuptools
 setuptools-scm
 ```
-
-Due to the conflict between `flash-linear-attention==0.1` and `transformers==4.55.2`, You can refer to [fla-org/flash-linear-attention#425](https://github.com/fla-org/flash-linear-attention/issues/425) to modify `<your_path_to_python3.12>/dist-packages/fla/models/bitnet/init.py` as follows:
-
-Change from:
-```python
-AutoConfig.register(ABCConfig.model_type, ABCConfig)
-AutoModel.register(ABCConfig, ABCModel)
-AutoModelForCausalLM.register(ABCConfig, ABCForCausalLM)
-```
-to:
-```python
-AutoConfig.register(ABCConfig.model_type, ABCConfig, exist_ok=True)
-AutoModel.register(ABCConfig, ABCModel, exist_ok=True)
-AutoModelForCausalLM.register(ABCConfig, ABCForCausalLM, exist_ok=True)
-```
-That is, add `exist_ok=True` to each line.
 
 ### Run with vLLM
 
