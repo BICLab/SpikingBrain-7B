@@ -3,6 +3,7 @@
 📄 Technical Report: [Chinese](SpikingBrain_Report_Chi.pdf) | [English](SpikingBrain_Report_Eng.pdf)  
 🚀 Arxiv: [arXiv:2509.05276](https://www.arxiv.org/abs/2509.05276)  
 🧩 Models: [Available Models](#available-models)   
+🔗 Demo: [OpenBayes贝式计算](https://openbayes.com/console/public/tutorials/eKBhv3jUkWw)    
 
 ---
 
