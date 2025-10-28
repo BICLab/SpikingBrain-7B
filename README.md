@@ -21,6 +21,7 @@ This repository provides the full implementation and weights of **SpikingBrain-7
 ```
 SpikingBrain-7B/
 ├── hf_7B_model/ # HuggingFace version
+├── hf_7B_VLM/   # VLM Model HuggingFace version
 ├── run_model/   # Model run examples
 ├── vllm_hymeta/ # vLLM plugins and inference support
 ├── W8ASpike/    # Quantized inference version
@@ -113,6 +114,7 @@ The model weights are hosted on **ModelScope**. Please select the appropriate ve
 
 - **Pre-trained model (7B):** https://www.modelscope.cn/models/Panyuqi/V1-7B-base
 - **Chat model (7B-SFT):** https://www.modelscope.cn/models/Panyuqi/V1-7B-sft-s3-reasoning
+- **Vision-language model (7B-SFT):** https://www.modelscope.cn/models/sherry12334/SpikingBrain-7B-VL
 - **Quantized weights (7B-W8ASpike):** https://www.modelscope.cn/models/Abel2076/SpikingBrain-7B-W8ASpike
 
 ### Usage
@@ -155,4 +157,5 @@ If you find our work useful, please consider citing **SpikingBrain**:
   journal={arXiv preprint arXiv:2509.05276},
   year={2025}
 }
+
 ```
