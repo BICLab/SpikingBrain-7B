@@ -21,6 +21,7 @@ This repository provides the full implementation and weights of **SpikingBrain-7
 ```
 SpikingBrain-7B/
 ├── hf_7B_model/ # HuggingFace version
+├── HF_7B_VLM/ # HuggingFace version of VLM
 ├── run_model/   # Model run examples
 ├── vllm_hymeta/ # vLLM plugins and inference support
 ├── W8ASpike/    # Quantized inference version
@@ -158,3 +159,4 @@ If you find our work useful, please consider citing **SpikingBrain**:
 }
 
 ```
+
