@@ -5,7 +5,7 @@ from qwen_vl_utils import process_vision_info
 from PIL import Image # Import Image, required by process_vision_info
 
 # --- 1. Load Model and Processor ---
-path = "/apdcephfs_zwfy/share_303793872/qxr/Qwen2-VL-Finetune_True/output/Qwen2.5_spikebrain_True_7B"
+path = "sherry12334/SpikingBrain-7B-VL"
 model = GLAModel.from_pretrained(
     path, torch_dtype="auto", device_map="auto"
 )
