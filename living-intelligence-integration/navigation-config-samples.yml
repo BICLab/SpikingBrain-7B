@@ -1,0 +1,438 @@
+# Navigation Configuration Samples
+# Copy the appropriate section to your site's config file
+
+---
+# For Jekyll (_config.yml or _data/navigation.yml)
+---
+nav:
+  - title: "Home"
+    url: "/"
+
+  - title: "Explore"
+    url: "/explore/"
+    submenu:
+      - title: "Technology"
+        url: "/explore/technology/"
+        description: "Cutting-edge innovations"
+        submenu:
+          - title: "SpikingBrain-7B"
+            url: "/explore/technology/spikingbrain"
+            description: "Neuromorphic AI with 100× efficiency"
+            icon: "🧠"
+
+          - title: "More Technologies"
+            url: "/explore/technology/"
+            description: "Explore all technologies"
+
+  - title: "About"
+    url: "/about/"
+
+---
+# For Hugo (config.toml or config.yaml)
+---
+# TOML Format (config.toml):
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Explore"
+  url = "/explore/"
+  weight = 2
+
+[[menu.main]]
+  parent = "Explore"
+  name = "Technology"
+  url = "/explore/technology/"
+  weight = 1
+
+[[menu.main]]
+  parent = "Technology"
+  name = "SpikingBrain-7B"
+  url = "/explore/technology/spikingbrain/"
+  weight = 1
+  pre = "🧠"
+
+# YAML Format (config.yaml):
+menu:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 1
+
+    - name: "Explore"
+      url: "/explore/"
+      weight: 2
+      hasChildren: true
+
+    - name: "Technology"
+      url: "/explore/technology/"
+      parent: "Explore"
+      weight: 1
+      hasChildren: true
+
+    - name: "SpikingBrain-7B"
+      url: "/explore/technology/spikingbrain/"
+      parent: "Technology"
+      weight: 1
+      pre: "🧠"
+
+---
+# For VuePress (.vuepress/config.js)
+---
+module.exports = {
+  title: 'Living Intelligence',
+  description: 'Exploring the future of intelligent systems',
+
+  themeConfig: {
+    nav: [
+      { text: 'Home', link: '/' },
+      {
+        text: 'Explore',
+        ariaLabel: 'Explore Menu',
+        items: [
+          {
+            text: 'Technology',
+            items: [
+              {
+                text: 'Overview',
+                link: '/explore/technology/'
+              },
+              {
+                text: '🧠 SpikingBrain-7B',
+                link: '/explore/technology/spikingbrain'
+              }
+            ]
+          }
+        ]
+      },
+      { text: 'About', link: '/about/' }
+    ],
+
+    // Sidebar for technology section
+    sidebar: {
+      '/explore/technology/': [
+        {
+          title: 'Technologies',
+          collapsable: false,
+          children: [
+            '',  // index.md
+            'spikingbrain'
+          ]
+        }
+      ]
+    }
+  }
+}
+
+---
+# For MkDocs (mkdocs.yml)
+---
+site_name: Living Intelligence
+site_description: Exploring the future of intelligent systems
+site_url: https://your-site.com
+
+nav:
+  - Home: index.md
+  - Explore:
+    - Overview: explore/index.md
+    - Technology:
+      - Overview: explore/technology/index.md
+      - SpikingBrain-7B: explore/technology/spikingbrain.md
+  - About: about.md
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.integrate
+
+---
+# For Docusaurus (docusaurus.config.js)
+---
+module.exports = {
+  title: 'Living Intelligence',
+  tagline: 'Exploring the future of intelligent systems',
+  url: 'https://your-site.com',
+
+  themeConfig: {
+    navbar: {
+      title: 'Living Intelligence',
+      items: [
+        {
+          to: '/',
+          label: 'Home',
+          position: 'left',
+        },
+        {
+          type: 'dropdown',
+          label: 'Explore',
+          position: 'left',
+          items: [
+            {
+              type: 'doc',
+              docId: 'explore/technology/index',
+              label: 'Technology',
+            },
+            {
+              type: 'doc',
+              docId: 'explore/technology/spikingbrain',
+              label: '🧠 SpikingBrain-7B',
+            },
+          ],
+        },
+        {
+          to: '/about',
+          label: 'About',
+          position: 'left',
+        },
+      ],
+    },
+
+    // Sidebar
+    docs: {
+      sidebar: {
+        '/explore/technology/': [
+          {
+            type: 'category',
+            label: 'Technologies',
+            items: [
+              'explore/technology/index',
+              'explore/technology/spikingbrain',
+            ],
+          },
+        ],
+      },
+    },
+  },
+};
+
+---
+# For Gatsby (gatsby-config.js with gatsby-theme-minimal)
+---
+module.exports = {
+  siteMetadata: {
+    title: `Living Intelligence`,
+    description: `Exploring the future of intelligent systems`,
+    siteUrl: `https://your-site.com`,
+
+    menuLinks: [
+      {
+        name: 'Home',
+        link: '/',
+      },
+      {
+        name: 'Explore',
+        link: '/explore',
+        submenu: [
+          {
+            name: 'Technology',
+            link: '/explore/technology',
+            submenu: [
+              {
+                name: '🧠 SpikingBrain-7B',
+                link: '/explore/technology/spikingbrain',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'About',
+        link: '/about',
+      },
+    ],
+  },
+
+  plugins: [
+    // ... other plugins
+  ],
+};
+
+---
+# For Next.js (with custom navigation component)
+---
+// components/Navigation.js or similar
+
+export const navigationConfig = {
+  main: [
+    {
+      name: 'Home',
+      href: '/',
+    },
+    {
+      name: 'Explore',
+      href: '/explore',
+      children: [
+        {
+          name: 'Technology',
+          href: '/explore/technology',
+          children: [
+            {
+              name: '🧠 SpikingBrain-7B',
+              href: '/explore/technology/spikingbrain',
+              description: 'Neuromorphic AI with 100× efficiency',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'About',
+      href: '/about',
+    },
+  ],
+};
+
+---
+# For Astro (src/config.ts or similar)
+---
+export const SITE = {
+  title: 'Living Intelligence',
+  description: 'Exploring the future of intelligent systems',
+  url: 'https://your-site.com',
+};
+
+export const NAV_LINKS = [
+  {
+    text: 'Home',
+    href: '/',
+  },
+  {
+    text: 'Explore',
+    href: '/explore',
+    children: [
+      {
+        text: 'Technology',
+        href: '/explore/technology',
+        children: [
+          {
+            text: '🧠 SpikingBrain-7B',
+            href: '/explore/technology/spikingbrain',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    text: 'About',
+    href: '/about',
+  },
+];
+
+---
+# For GitBook (SUMMARY.md)
+---
+# Summary
+
+* [Home](README.md)
+* [Explore](explore/README.md)
+  * [Technology](explore/technology/README.md)
+    * [SpikingBrain-7B](explore/technology/spikingbrain.md)
+* [About](about.md)
+
+---
+# For Sphinx (conf.py or _templates/)
+---
+# In conf.py:
+html_theme_options = {
+    'navigation_depth': 3,
+    'titles_only': False,
+    'collapse_navigation': False,
+}
+
+# In index.rst or your main toctree:
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   Home <index>
+   explore/index
+   explore/technology/index
+   explore/technology/spikingbrain
+   about
+
+---
+# Additional Tips
+---
+
+# For Static HTML Sites (Plain JavaScript):
+const navigation = [
+  {
+    title: 'Home',
+    url: '/',
+  },
+  {
+    title: 'Explore',
+    url: '/explore/',
+    submenu: [
+      {
+        title: 'Technology',
+        url: '/explore/technology/',
+        submenu: [
+          {
+            title: '🧠 SpikingBrain-7B',
+            url: '/explore/technology/spikingbrain.html',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'About',
+    url: '/about/',
+  },
+];
+
+# For WordPress (functions.php or theme config):
+function register_custom_menu() {
+  register_nav_menus(array(
+    'primary' => __('Primary Menu'),
+  ));
+}
+add_action('init', 'register_custom_menu');
+
+// Then add menu items in WordPress admin:
+// Appearance → Menus
+// Add: Explore → Technology → SpikingBrain-7B
+
+# Breadcrumb Configuration:
+Home > Explore > Technology > SpikingBrain-7B
+
+# Schema.org structured data for SEO:
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://your-site.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Explore",
+      "item": "https://your-site.com/explore/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Technology",
+      "item": "https://your-site.com/explore/technology/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "SpikingBrain-7B",
+      "item": "https://your-site.com/explore/technology/spikingbrain"
+    }
+  ]
+}
