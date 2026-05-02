@@ -7,6 +7,14 @@
 
 ---
 
+## 📢 News
+
+- **2026-04**: 🚀 We released **SpikingBrain2.0**, with comprehensive upgrades to architecture and training token efficiency, along with broader support for downstream applications. Check it out at [BICLab/SpikingBrain2.0](https://github.com/BICLab/SpikingBrain2.0).
+- **2026-03**: 🎉 Our paper "SpikingBrain: Spiking Brain-inspired Large Models" has been accepted by **TMLR 2026**!
+- **2025-09**: SpikingBrain repository is created.
+
+---
+
 ## About SpikingBrain
 
 Inspired by brain mechanisms, **SpikingBrain** integrates **hybrid efficient attention**, **MoE modules**, and **spike encoding** into its architecture, supported by a universal conversion pipeline compatible with the open-source model ecosystem. This enables continual pre-training with less than 2\% of the data while achieving performance comparable to mainstream open-source models. We further adapt frameworks, operators, parallel strategies, and communication primitives for **non-NVIDIA (MetaX) clusters**, ensuring stable large-scale training and inference. SpikingBrain achieves over 100× speedup in TTFT for 4M-token sequences, while spiking delivers over 69\% sparsity at the micro level. Combined with macro-level MoE sparsity, these advances provide valuable guidance for the design of next-generation neuromorphic chips.
@@ -152,8 +160,8 @@ If you find our work useful, please consider citing **SpikingBrain**:
 
 ```bibtex
 @article{pan2025spikingbrain,
-  title={SpikingBrain Technical Report: Spiking Brain-inspired Large Models},
-  author={Pan, Yuqi and Feng, Yupeng and Zhuang, Jinghao and Ding, Siyu and Liu, Zehao and Sun, Bohan and Chou, Yuhong and Xu, Han and Qiu, Xuerui and Deng, Anlin and others},
+  title={SpikingBrain: Spiking Brain-inspired Large Models},
+  author={Pan, Yuqi and Feng, Yupeng and Zhuang, Jinghao and Ding, Siyu and Xu, Han and Liu, Zehao and Sun, Bohan and Chou, Yuhong and Qiu, Xuerui and Deng, Anlin and others},
   journal={arXiv preprint arXiv:2509.05276},
   year={2025}
 }
