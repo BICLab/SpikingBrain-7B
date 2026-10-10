@@ -152,6 +152,26 @@ Table 1: **Performance evaluation of the SpikingBrain-7B pre-trained model.** Al
 Table 2: **Performance evaluation of the SpikingBrain-76B pre-trained model.** All models are tested with the vLLM framework and evaluated using a perplexity-based method. Except for Qwen2.5, the other baselines are trained on limited Chinese data, resulting in clear disadvantages on CMMLU and C-Eval.
 ![](assets/table2.png)
 
+---
+
+## 🛠️ Community Ecosystem Toolkit
+
+An open-source developer ecosystem toolkit is provided under [`tools/spikingbrain`](tools/spikingbrain):
+- **OpenAI-Compatible REST Server**: Standardized FastAPI `/v1/chat/completions` server supporting streaming Server-Sent Events (SSE) and live neuromorphic telemetry headers (`X-Neuromorphic-Sparsity`, `X-Synaptic-Operations-SOPs`, `X-Energy-Savings-Ratio`).
+- **Micro-Sparsity Telemetry**: Real-time layer-wise spike rates ($\rho_l$), Synaptic Operations (SOPs), and 45nm CMOS dynamic energy model (>800x theoretical efficiency).
+- **Spike-LoRA (PEFT)**: Parameter-efficient fine-tuning preserving discrete Heaviside threshold firing with surrogate gradient backpropagation.
+- **Interactive WebUI Playground**: Real-time browser playground with streaming chat, live neuromorphic metrics, and dynamic layer spike density visualizations.
+
+### Launch Server
+```bash
+python -m tools.spikingbrain.server --port 8000
+```
+
+### Launch Interactive WebUI Playground
+```bash
+python -m tools.spikingbrain.webui --port 7860
+```
+
 --- 
 
 ## Citation
